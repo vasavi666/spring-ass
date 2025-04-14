@@ -1,9 +1,7 @@
 package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/my_first_api")
@@ -16,5 +14,9 @@ public class helloworld {
     public String myFirstAPIMethod(){
 
         return studentRepository.findAll().toString();
+    }
+    @PostMapping
+    public void myFirstAPIMethod(@RequestBody Students students){
+        studentRepository.save(students);
     }
 }
